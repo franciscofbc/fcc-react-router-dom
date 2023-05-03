@@ -21,6 +21,10 @@ nav > a {
   color: #161616;
 }
 
+nav > a:hover {
+  text-decoration: underline;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -31,6 +35,7 @@ header {
 
 .about-image54 {
   /* display: block; */
+  width: 100%;
 }
 
 .about-h1 {
@@ -76,6 +81,7 @@ header {
   background-image: url('./assets/images/image53.png');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 384px;
 }
 .home-h1 {
   font-weight: 800;
@@ -108,4 +114,59 @@ header {
   padding-top: 48px;
   padding-bottom: 64px;
   background-color: transparent;
+}
+
+.footer-div {
+  height: 72px;
+  background-color: #252525;
+}
+
+.footer-p {
+  background-color: transparent;
+  color: #aaaaaa;
+  text-align: center;
+  padding-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.vans-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+}
+.vans-div img {
+  border-radius: 4px;
+  width: 100%;
+}
+.van-name-price {
+  display: flex;
+  justify-content: space-between;
+}
+.van-name-price h3,
+.van-name-price p {
+  font-weight: 600;
+  font-size: 20px;
+  color: #161616;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.van-type-i {
+  margin-bottom: 24px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-style: normal;
+  display: inline-block;
+  color: #ffead0;
+  text-transform: capitalize;
+}
+
+.simple {
+  background-color: #e17654;
+}
+.luxury {
+  background-color: #161616;
+}
+.rugged {
+  background-color: #115e59;
 }
