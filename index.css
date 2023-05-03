@@ -2,8 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
   background-color: #fff7ed;
   font-family: 'Inter', sans-serif;
+  text-decoration: none;
 }
 
 .container {
@@ -82,6 +84,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   height: 384px;
+  /* height: 72vh; */
 }
 .home-h1 {
   font-weight: 800;
@@ -150,12 +153,12 @@ header {
   margin-top: 8px;
   margin-bottom: 4px;
 }
-.van-type-i {
+.van-type-p {
   margin-bottom: 24px;
   font-size: 16px;
   padding: 8px 16px;
   border-radius: 4px;
-  font-style: normal;
+  /* font-style: normal; */
   display: inline-block;
   color: #ffead0;
   text-transform: capitalize;
@@ -169,4 +172,45 @@ header {
 }
 .rugged {
   background-color: #115e59;
+}
+
+/* ###VAN_DETAIL */
+
+.link-back {
+  font-size: 16px;
+  font-weight: 500;
+  color: #201f1d;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.detail-van-div img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 48px;
+}
+
+.detail-van-div h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #161616;
+  margin-bottom: 16px;
+}
+
+.detail-van-div .price-p {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.detail-van-div p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.van-detail-link {
+  margin-bottom: 80px;
 }
