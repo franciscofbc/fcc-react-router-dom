@@ -221,3 +221,50 @@ header {
 .van-detail-link {
   margin-bottom: 80px;
 }
+
+/* ### HOSTVANS */
+.host-vans {
+  display: flex;
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+  color: #161616;
+}
+.host-vans > img {
+  height: 64px;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+.host-vans-name-price,
+.host-vans-name-price h3,
+.host-vans-name-price p {
+  background-color: transparent;
+}
+
+/* ###HOST VAN DETAIL */
+.detail-van {
+  margin-top: 120px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+.detail-van > img {
+  height: 160px;
+  border-radius: 4px;
+  margin-right: 24px;
+}
+.host-detail-van-div {
+  background-color: transparent;
+}
+
+.host-detail-van-div > h3 {
+  background-color: transparent;
+  margin-bottom: 4px;
+}
+
+.host-detail-van-div .price {
+  background-color: transparent;
+}
