@@ -25,6 +25,12 @@ nav > a {
 
 nav > a:hover {
   text-decoration: underline;
+  font-weight: 900;
+}
+
+.isActive {
+  text-decoration: underline;
+  font-weight: 900;
 }
 
 header {
@@ -119,6 +125,7 @@ header {
   background-color: transparent;
 }
 
+/* ###FOOTER */
 .footer-div {
   height: 72px;
   background-color: #252525;
