@@ -11,7 +11,7 @@ const HostVans = () => {
   }, []);
 
   const listVans = vans.map((van) => (
-    <Link key={van.id} to={`/host/vans/${van.id}`}>
+    <Link key={van.id} to={van.id}>
       <div className="host-vans">
         <img src={van.imageUrl} alt={van.name} />
         <div className="host-vans-name-price">

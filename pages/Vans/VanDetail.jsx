@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 
 const VanDetail = () => {
   const params = useParams();
   const [van, setVan] = useState({});
+  const location = useLocation();
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -25,13 +26,20 @@ const VanDetail = () => {
     <div className="container">
       {van.name ? (
         <>
-          <Link to=".." className="link-back">
-            &larr; Back to all vans
-          </Link>
+          {/* <Link to=".." className="link-back"> */}
+          {location.state.search ? (
+            <Link to={`..?${location.state.search}`} className="link-back">
+              &larr; {`Back to ${location.state.type} vans`}
+            </Link>
+          ) : (
+            <Link to=".." className="link-back">
+              &larr; Back to all vans
+            </Link>
+          )}
           {detailVan}
-          <Link to="/" className="home-link van-detail-link">
+          {/* <Link to=".." className="home-link van-detail-link">
             Rent this van
-          </Link>
+          </Link> */}
         </>
       ) : (
         <h2>Loading...</h2>

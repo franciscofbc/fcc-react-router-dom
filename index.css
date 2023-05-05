@@ -139,6 +139,7 @@ header {
   font-size: 14px;
   font-weight: 500;
 }
+/* ###VANS */
 .vans-div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -179,6 +180,46 @@ header {
 }
 .rugged {
   background-color: #115e59;
+}
+
+.vans-filter {
+  margin-bottom: 56px;
+}
+
+.vans-filter-link {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  border-radius: 4px;
+  margin-right: 24px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-simple:hover,
+.selected-simple {
+  background-color: #e17654;
+  color: #ffead0;
+}
+
+.btn-luxury:hover,
+.selected-luxury {
+  background-color: #161616;
+  color: #ffead0;
+}
+
+.btn-rugged:hover,
+.selected-rugged {
+  background-color: #115e59;
+  color: #ffead0;
+}
+
+.vans-filter .vans-filter-clear {
+  color: #4d4d4d;
+  text-decoration: underline;
+  margin-left: 24px;
+  cursor: pointer;
+  border: none;
 }
 
 /* ###VAN_DETAIL */
