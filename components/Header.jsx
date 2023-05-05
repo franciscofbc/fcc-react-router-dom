@@ -10,24 +10,24 @@ const Header = () => {
 
   return (
     <header className="container">
-      <Link to="/">
+      <Link to=".">
         <img src={logo} alt="VANLIFE" />
       </Link>
       <nav>
         <NavLink
-          to="/host"
+          to="host"
           className={({ isActive }) => (isActive ? 'isActive' : null)}
         >
           Host
         </NavLink>
         <NavLink
-          to="/about"
+          to="about"
           className={({ isActive }) => (isActive ? 'isActive' : null)}
         >
           About
         </NavLink>
         <NavLink
-          to="/vans"
+          to="vans"
           className={({ isActive }) => (isActive ? 'isActive' : null)}
         >
           Vans

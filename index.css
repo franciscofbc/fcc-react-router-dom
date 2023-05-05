@@ -245,11 +245,12 @@ header {
 
 /* ###HOST VAN DETAIL */
 .detail-van {
-  margin-top: 120px;
-  background-color: #ffffff;
+  /* margin-top: 120px; */
+  /* background-color: #ffffff; */
   display: flex;
   align-items: center;
-  padding: 24px;
+  /* padding: 24px; */
+  background-color: transparent;
 }
 .detail-van > img {
   height: 160px;
@@ -267,4 +268,37 @@ header {
 
 .host-detail-van-div .price {
   background-color: transparent;
+}
+
+.teste {
+  background-color: #ffffff;
+  /* margin-top: 120px; */
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.teste > nav {
+  background-color: transparent;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.host-van-detail-detail {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: transparent;
+}
+
+.host-van-detail-detail > p,
+.host-van-detail-detail > p > b,
+.host-van-detail-pricing,
+.host-van-detail-pricing > h3,
+.host-van-detail-photos {
+  margin-top: 16px;
+  background-color: transparent;
+}
+
+.host-van-detail-photos > img {
+  height: 96px;
+  border-radius: 4px;
 }

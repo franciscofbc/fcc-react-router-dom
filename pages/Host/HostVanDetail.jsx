@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet, NavLink, Link } from 'react-router-dom';
 
 const HostVanDetail = () => {
   const params = useParams();
@@ -22,7 +22,41 @@ const HostVanDetail = () => {
     </div>
   );
 
-  return <>{detailVan}</>;
+  return (
+    <>
+      &larr;{' '}
+      <Link to=".." className="link-back">
+        {/* relative="path" */}
+        Back to all vans
+      </Link>
+      <div className="teste">
+        {detailVan}
+        <nav>
+          <NavLink
+            to="."
+            // to={`/host/vans/${van.id}`}
+            end
+            className={({ isActive }) => (isActive ? 'isActive' : null)}
+          >
+            Detail
+          </NavLink>
+          <NavLink
+            to="pricing"
+            className={({ isActive }) => (isActive ? 'isActive' : null)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photos"
+            className={({ isActive }) => (isActive ? 'isActive' : null)}
+          >
+            Photos
+          </NavLink>
+        </nav>
+        <Outlet context={van} />
+      </div>
+    </>
+  );
 };
 
 export default HostVanDetail;

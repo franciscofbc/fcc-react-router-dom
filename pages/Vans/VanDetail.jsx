@@ -25,8 +25,8 @@ const VanDetail = () => {
     <div className="container">
       {van.name ? (
         <>
-          <Link to="/vans" className="link-back">
-            Back to all vans
+          <Link to=".." className="link-back">
+            &larr; Back to all vans
           </Link>
           {detailVan}
           <Link to="/" className="home-link van-detail-link">
