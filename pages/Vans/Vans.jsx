@@ -1,16 +1,35 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
+import { getVans } from '../../api';
+
+export const loader = () => getVans();
+// export function loader() {
+//   return 'vans data goes here';
+// }
 
 const Vans = () => {
-  const [vans, setVans] = useState([]);
+  // const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetch('/api/vans')
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  const vans = useLoaderData();
+  // console.log(data[0]);
+  // setVans(useLoaderData());
+
+  // useEffect(() => {
+  //   async function loadVans() {
+  //     // setLoading(true);
+  //     const data = await getVans();
+  //     setVans(data);
+  //     // setLoading(false);
+  //   }
+  //   loadVans();
+  // }, []);
+
+  // if (loading) {
+  //   return <h1>Loading...</h1>;
+  // }
 
   const filterVans = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
@@ -71,18 +90,6 @@ const Vans = () => {
             Clear filters
           </button>
         )}
-        {/* <Link className="vans-filter-link" to="?type=simple">
-          Simple
-        </Link>
-        <Link className="vans-filter-link" to="?type=luxury">
-          Luxury
-        </Link>
-        <Link className="vans-filter-link" to="?type=rugged">
-          Rugged
-        </Link>
-        <Link className="vans-filter-clear" to=".">
-          Clear filters
-        </Link> */}
       </div>
       <div className="vans-div">{listVans}</div>
     </div>
@@ -90,3 +97,18 @@ const Vans = () => {
 };
 
 export default Vans;
+
+{
+  /* <Link className="vans-filter-link" to="?type=simple">
+                  Simple
+                </Link>
+                <Link className="vans-filter-link" to="?type=luxury">
+                  Luxury
+                </Link>
+                <Link className="vans-filter-link" to="?type=rugged">
+                  Rugged
+                </Link>
+                <Link className="vans-filter-clear" to=".">
+                  Clear filters
+                </Link> */
+}
