@@ -7,6 +7,10 @@ export const loader = () => getVans();
 //   return 'vans data goes here';
 // }
 
+// export function loader() {
+//   return getVans();
+// }
+
 const Vans = () => {
   // const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();

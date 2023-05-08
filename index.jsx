@@ -23,6 +23,7 @@ import Detail from './pages/Host/Detail';
 import Pricing from './pages/Host/Pricing';
 import Photos from './pages/Host/Photos';
 import NotFound from './pages/NotFound';
+import Error from './pages/Error';
 import './server';
 
 function App() {
@@ -47,7 +48,13 @@ function App() {
         </Route>
         <Route path="about" element={<About />} />
         <Route path="vans">
-          <Route index element={<Vans />} loader={vansLoader} />
+          <Route
+            index
+            element={<Vans />}
+            errorElement={<Error />}
+            loader={vansLoader}
+          />
+
           <Route path=":id" element={<VanDetail />} />
         </Route>
         <Route path="*" element={<NotFound />} />
