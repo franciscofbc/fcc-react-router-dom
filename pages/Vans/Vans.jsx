@@ -3,13 +3,6 @@ import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
 import { getVans } from '../../api';
 
 export const loader = () => getVans();
-// export function loader() {
-//   return 'vans data goes here';
-// }
-
-// export function loader() {
-//   return getVans();
-// }
 
 const Vans = () => {
   // const [vans, setVans] = useState([]);

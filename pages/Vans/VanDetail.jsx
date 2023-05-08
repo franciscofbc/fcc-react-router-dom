@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation, useLoaderData } from 'react-router-dom';
+import { getVans } from '../../api';
+
+export const loader = ({ params }) => getVans(params.id);
 
 const VanDetail = () => {
-  const params = useParams();
-  const [van, setVan] = useState({});
+  // const params = useParams();
+  // const [van, setVan] = useState({});
   const location = useLocation();
 
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-  }, [params.id]);
+  const van = useLoaderData();
+
+  // useEffect(() => {
+  //   fetch(`/api/vans/${params.id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setVan(data.vans));
+  // }, [params.id]);
 
   const detailVan = (
     <div className="detail-van-div">
@@ -24,26 +29,26 @@ const VanDetail = () => {
 
   return (
     <div className="container">
-      {van.name ? (
-        <>
-          {/* <Link to=".." className="link-back"> */}
-          {location.state.search ? (
-            <Link to={`..?${location.state.search}`} className="link-back">
-              &larr; {`Back to ${location.state.type} vans`}
-            </Link>
-          ) : (
-            <Link to=".." className="link-back">
-              &larr; Back to all vans
-            </Link>
-          )}
-          {detailVan}
-          {/* <Link to=".." className="home-link van-detail-link">
+      {/* {van.name ? ( */}
+      <>
+        {/* <Link to=".." className="link-back"> */}
+        {location.state.search ? (
+          <Link to={`..?${location.state.search}`} className="link-back">
+            &larr; {`Back to ${location.state.type} vans`}
+          </Link>
+        ) : (
+          <Link to=".." className="link-back">
+            &larr; Back to all vans
+          </Link>
+        )}
+        {detailVan}
+        {/* <Link to=".." className="home-link van-detail-link">
             Rent this van
           </Link> */}
-        </>
-      ) : (
-        <h2>Loading...</h2>
-      )}
+      </>
+      {/* ) : ( */}
+      {/* <h2>Loading...</h2> */}
+      {/* )} */}
     </div>
   );
 };
