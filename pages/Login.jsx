@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { useLoaderData, useSearchParams, Form } from 'react-router-dom';
+import {
+  useLoaderData,
+  useSearchParams,
+  Form,
+  redirect,
+  useActionData,
+  useNavigation,
+} from 'react-router-dom';
 import { loginUser } from '../api';
 
 export function loader({ request }) {
@@ -10,9 +17,14 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password');
-  const data = await loginUser({ email, password });
-  console.log(data);
-  return null;
+
+  try {
+    const data = await loginUser({ email, password });
+    localStorage.setItem('loggedin', true);
+    return redirect('/host');
+  } catch (error) {
+    return error.message;
+  }
 }
 
 const Login = () => {
@@ -23,6 +35,10 @@ const Login = () => {
   // console.log(searchParams.get('message'));
 
   const message = useLoaderData();
+  const errorMessage = useActionData();
+  const navigation = useNavigation();
+
+  // console.log(errorMessage);
 
   // const handleForm = (e) => {
   //   e.preventDefault();
@@ -38,8 +54,9 @@ const Login = () => {
     <div className="container form-container">
       <h1>Sign in to your account</h1>
       {message && <h4 className="login-message">{message}</h4>}
+      {errorMessage && <h4 className="login-message">{errorMessage}</h4>}
       {/* <Form className="login-form" onSubmit={handleForm}> */}
-      <Form className="login-form" method="post">
+      <Form className="login-form" method="post" replace>
         <input
           type="email"
           placeholder="Email address"
@@ -59,7 +76,10 @@ const Login = () => {
           // value={password}
         />
         {/* <button type="submit">Sign in</button> */}
-        <button>Sign in</button>
+        <button disabled={navigation.state === 'submitting'}>
+          {/* <button {navigation.state==='submitting' && disabled}> */}
+          {navigation.state === 'submitting' ? 'Submitting' : 'Sign in'}
+        </button>
         {/* <input type="submit" value="Sing in" /> */}
       </Form>
       <p>

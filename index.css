@@ -386,6 +386,10 @@ header {
 .login-form > button:hover {
   cursor: pointer;
 }
+.login-form > button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
 .login-form > input {
   padding: 8px;
   border-radius: 2px;

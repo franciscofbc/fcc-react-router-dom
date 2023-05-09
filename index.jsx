@@ -32,6 +32,7 @@ import Login, {
 } from './pages/Login';
 import './server';
 import { requireAuth } from './utils';
+// localStorage.removeItem('loggedin');
 
 function App() {
   // console.log(vansLoader);
@@ -99,7 +100,7 @@ function App() {
           element={<Login />}
           loader={loginLoader}
           action={loginAction}
-          errorElement={<Error />}
+          // errorElement={<Error />}
         />
 
         <Route path="*" element={<NotFound />} />
