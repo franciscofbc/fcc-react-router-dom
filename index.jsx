@@ -17,15 +17,18 @@ import HostLayout from './components/HostLayout';
 import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
-import HostVans from './pages/Host/HostVans';
-import HostVanDetail from './pages/Host/HostVanDetail';
+import HostVans, { loader as hostVansLoader } from './pages/Host/HostVans';
+import HostVanDetail, {
+  loader as hostVanDetailLoader,
+} from './pages/Host/HostVanDetail';
 import Detail from './pages/Host/Detail';
 import Pricing from './pages/Host/Pricing';
 import Photos from './pages/Host/Photos';
 import NotFound from './pages/NotFound';
 import Error from './pages/Error';
-import Login from './pages/Login';
+import Login, { loader as loginLoader } from './pages/Login';
 import './server';
+import { requireAuth } from './utils';
 
 function App() {
   // console.log(vansLoader);
@@ -38,61 +41,41 @@ function App() {
         <Route path="host" element={<HostLayout />}>
           <Route
             index
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
             element={<Dashboard />}
           />
           <Route
             path="income"
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
             element={<Income />}
           />
           <Route path="vans">
-            <Route
-              index
-              loader={async () => {
-                return null;
-              }}
-              element={<HostVans />}
-            />
+            <Route index loader={hostVansLoader} element={<HostVans />} />
             <Route
               path=":id"
-              loader={async () => {
-                return null;
-              }}
+              loader={hostVanDetailLoader}
               element={<HostVanDetail />}
             >
               <Route
                 index
-                loader={async () => {
-                  return null;
-                }}
+                loader={async () => await requireAuth()}
                 element={<Detail />}
               />
               <Route
                 path="pricing"
-                loader={async () => {
-                  return null;
-                }}
+                loader={async () => await requireAuth()}
                 element={<Pricing />}
               />
               <Route
                 path="photos"
-                loader={async () => {
-                  return null;
-                }}
+                loader={async () => await requireAuth()}
                 element={<Photos />}
               />
             </Route>
           </Route>
           <Route
             path="reviews"
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
             element={<Reviews />}
           />
         </Route>
@@ -108,7 +91,7 @@ function App() {
           <Route path=":id" element={<VanDetail />} loader={vanDetailLoader} />
         </Route>
 
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login />} loader={loginLoader} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

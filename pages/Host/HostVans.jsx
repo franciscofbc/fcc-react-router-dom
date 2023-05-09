@@ -1,14 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { getHostVans } from '../../api';
+import { requireAuth } from '../../utils';
+
+export async function loader() {
+  await requireAuth();
+  return getHostVans();
+}
 
 const HostVans = () => {
-  const [vans, setVans] = useState([]);
+  // const [vans, setVans] = useState([]);
+  const vans = useLoaderData();
 
-  useEffect(() => {
-    fetch('/api/host/vans')
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/host/vans')
+  //     .then((res) => res.json())
+  //     .then((data) => setVans(data.vans));
+  // }, []);
 
   const listVans = vans.map((van) => (
     <Link key={van.id} to={van.id}>
