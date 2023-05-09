@@ -407,3 +407,8 @@ header {
   color: #ff8c38;
   font-weight: 700;
 }
+
+.login-message {
+  color: red;
+  margin-bottom: 24px;
+}

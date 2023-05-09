@@ -26,7 +26,10 @@ import Pricing from './pages/Host/Pricing';
 import Photos from './pages/Host/Photos';
 import NotFound from './pages/NotFound';
 import Error from './pages/Error';
-import Login, { loader as loginLoader } from './pages/Login';
+import Login, {
+  loader as loginLoader,
+  action as loginAction,
+} from './pages/Login';
 import './server';
 import { requireAuth } from './utils';
 
@@ -91,7 +94,13 @@ function App() {
           <Route path=":id" element={<VanDetail />} loader={vanDetailLoader} />
         </Route>
 
-        <Route path="login" element={<Login />} loader={loginLoader} />
+        <Route
+          path="login"
+          element={<Login />}
+          loader={loginLoader}
+          action={loginAction}
+          errorElement={<Error />}
+        />
 
         <Route path="*" element={<NotFound />} />
       </Route>
