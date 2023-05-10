@@ -45,12 +45,12 @@ function App() {
         <Route path="host" element={<HostLayout />}>
           <Route
             index
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
             element={<Dashboard />}
           />
           <Route
             path="income"
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
             element={<Income />}
           />
           <Route path="vans">
@@ -62,24 +62,24 @@ function App() {
             >
               <Route
                 index
-                loader={async () => await requireAuth()}
+                loader={async ({ request }) => await requireAuth(request)}
                 element={<Detail />}
               />
               <Route
                 path="pricing"
-                loader={async () => await requireAuth()}
+                loader={async ({ request }) => await requireAuth(request)}
                 element={<Pricing />}
               />
               <Route
                 path="photos"
-                loader={async () => await requireAuth()}
+                loader={async ({ request }) => await requireAuth(request)}
                 element={<Photos />}
               />
             </Route>
           </Route>
           <Route
             path="reviews"
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
             element={<Reviews />}
           />
         </Route>

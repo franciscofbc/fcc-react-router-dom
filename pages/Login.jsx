@@ -10,6 +10,7 @@ import {
 import { loginUser } from '../api';
 
 export function loader({ request }) {
+  // console.log(new URL(request.url).searchParams.get('redirectTo'));
   return new URL(request.url).searchParams.get('message');
 }
 
@@ -18,10 +19,12 @@ export async function action({ request }) {
   const email = formData.get('email');
   const password = formData.get('password');
 
+  const pathname = new URL(request.url).searchParams.get('redirectTo');
+
   try {
     const data = await loginUser({ email, password });
     localStorage.setItem('loggedin', true);
-    return redirect('/host');
+    return redirect(pathname ? pathname : '/host');
   } catch (error) {
     return error.message;
   }
