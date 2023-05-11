@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Await, Link, defer, useLoaderData } from 'react-router-dom';
 import { getHostVans } from '../../api';
 import { requireAuth } from '../../utils';
 
 export async function loader({ request }) {
   await requireAuth(request);
-  return getHostVans();
+  // return getHostVans();
+  return defer({ hostVans: getHostVans() });
 }
 
 const HostVans = () => {
   // const [vans, setVans] = useState([]);
-  const vans = useLoaderData();
+
+  // const vans = useLoaderData();
+  const vansPromisse = useLoaderData();
 
   // useEffect(() => {
   //   fetch('/api/host/vans')
@@ -18,22 +21,29 @@ const HostVans = () => {
   //     .then((data) => setVans(data.vans));
   // }, []);
 
-  const listVans = vans.map((van) => (
-    <Link key={van.id} to={van.id}>
-      <div className="host-vans">
-        <img src={van.imageUrl} alt={van.name} />
-        <div className="host-vans-name-price">
-          <h3>{van.name}</h3>
-          <p>${van.price}/day</p>
+  function renderHostVansElement(vans) {
+    const listVans = vans.map((van) => (
+      <Link key={van.id} to={van.id}>
+        <div className="host-vans">
+          <img src={van.imageUrl} alt={van.name} />
+          <div className="host-vans-name-price">
+            <h3>{van.name}</h3>
+            <p>${van.price}/day</p>
+          </div>
         </div>
-      </div>
-    </Link>
-  ));
+      </Link>
+    ));
+
+    return <>{listVans};</>;
+  }
 
   return (
     <div>
       <h1>Explore our van options</h1>
-      <div>{listVans}</div>
+      {/* <div>{listVans}</div> */}
+      <React.Suspense fallback={<h2>Loading host vans...</h2>}>
+        <Await resolve={vansPromisse.hostVans}>{renderHostVansElement}</Await>
+      </React.Suspense>
     </div>
   );
 };

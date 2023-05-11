@@ -54,11 +54,17 @@ function App() {
             element={<Income />}
           />
           <Route path="vans">
-            <Route index loader={hostVansLoader} element={<HostVans />} />
+            <Route
+              index
+              loader={hostVansLoader}
+              element={<HostVans />}
+              errorElement={<Error />}
+            />
             <Route
               path=":id"
               loader={hostVanDetailLoader}
               element={<HostVanDetail />}
+              errorElement={<Error />}
             >
               <Route
                 index
@@ -85,13 +91,9 @@ function App() {
         </Route>
 
         <Route path="about" element={<About />} />
-        <Route path="vans">
-          <Route
-            index
-            element={<Vans />}
-            errorElement={<Error />}
-            loader={vansLoader}
-          />
+
+        <Route path="vans" errorElement={<Error />}>
+          <Route index element={<Vans />} loader={vansLoader} />
           <Route path=":id" element={<VanDetail />} loader={vanDetailLoader} />
         </Route>
 
