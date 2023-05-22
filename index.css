@@ -416,3 +416,34 @@ header {
   color: red;
   margin-bottom: 24px;
 }
+
+/* #HOST REVIEWS */
+.reviews-title {
+  display: flex;
+  align-items: baseline;
+}
+.reviews-title span {
+  color: #4d4d4d;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.reviews-title h1 {
+  margin-right: 16px;
+}
+.reviews-title-comments {
+  margin: 32px 0 16px 0;
+}
+.reviews-personal-comments span {
+  color: #8c8c8c;
+}
+.reviews-stars {
+  margin-bottom: 16px;
+}
+.reviews-comments {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  border-bottom: solid 1px #c7c7c7;
+  padding-bottom: 24px;
+  line-height: 24px;
+}

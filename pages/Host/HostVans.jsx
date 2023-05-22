@@ -34,7 +34,7 @@ const HostVans = () => {
       </Link>
     ));
 
-    return <>{listVans};</>;
+    return <>{listVans}</>;
   }
 
   return (
