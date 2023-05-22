@@ -505,3 +505,67 @@ header {
   font-weight: 500;
   background-color: transparent;
 }
+
+/* #DASHBOARD */
+.income-dashboard {
+  background-color: #ffead0;
+  padding: 40px 24px 40px 24px;
+  margin-top: 48px;
+  border-radius: 4px;
+}
+
+.income-dashboard h1,
+.income-dashboard p {
+  background-color: transparent;
+}
+.income-dashboard-flex {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+.income-dashboard-flex span {
+  background-color: transparent;
+  color: #4d4d4d;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.income-dashboard-value {
+  font-weight: 800;
+  font-size: 48px;
+  margin: 32px 0 32px 0;
+}
+.reviews-dashboard {
+  border-radius: 4px;
+  background-color: #ffddb2;
+  padding: 48px 26px 48px 26px;
+  display: flex;
+  justify-content: space-between;
+}
+.reviews-dashboard p {
+  background-color: transparent;
+}
+.reviews-dashboard-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+.reviews-dashboard-score h2 {
+  margin-right: 12px;
+  background-color: transparent;
+}
+
+.reviews-dashboard-score span {
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.reviews-dashboard-score img {
+  background-color: transparent;
+}
+.vans-dashboard-flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 24px 40px 24px;
+}
