@@ -10,7 +10,7 @@ const Reviews = () => {
           last <span>30 days</span>
         </p>
       </div>
-      <img src={reviews} alt="" />
+      <img className="reviews-img" src={reviews} alt="" />
       <h3 className="reviews-title-comments">Reviews (2)</h3>
       <div className="reviews-personal-comments">
         <div className="reviews-stars">
