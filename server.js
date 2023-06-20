@@ -117,7 +117,10 @@ createServer({
         return new Response(
           401,
           {},
-          { message: 'No user with those credentials found!' }
+          {
+            message:
+              'No user with those credentials found! | Email address: b@b.com | Password: p123',
+          }
         );
       }
 
