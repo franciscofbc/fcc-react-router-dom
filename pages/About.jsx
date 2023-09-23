@@ -4,6 +4,7 @@ import image54 from '../assets/images/image54.png';
 
 const About = () => {
   return (
+    //
     <>
       <img className="about-image54" src={image54} alt="image54" />
       <div className="container">
